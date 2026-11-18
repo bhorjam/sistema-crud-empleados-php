@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1536" height="820" viewBox="0 0 1536 820" role="img" aria-labelledby="title desc">
+  <title id="title">Vista de escritorio del CRUD de empleados</title>
+  <desc id="desc">Interfaz de ejemplo con formulario de empleado y tabla con datos demostrativos.</desc>
+  <rect width="1536" height="820" fill="#eef0f2"/>
+  <text x="42" y="62" fill="#252a31" font-family="Arial, sans-serif" font-size="37" font-weight="700">Sistema CRUD de Empleados en PHP con PDO y MySQL</text>
+  <text x="42" y="96" fill="#667085" font-family="Arial, sans-serif" font-size="17">Administra el registro de tu equipo de forma sencilla.</text>
+  <rect x="34" y="128" width="1468" height="660" rx="14" fill="#fff" stroke="#e7ebef"/>
+  <line x1="532" y1="129" x2="532" y2="788" stroke="#e8edf3"/>
+  <text x="62" y="184" fill="#252a31" font-family="Arial, sans-serif" font-size="23" font-weight="700">Empleado</text>
+  <rect x="465" y="151" width="40" height="40" rx="8" fill="#0abf62"/>
+  <text x="477" y="179" fill="#fff" font-family="Arial, sans-serif" font-size="24" font-weight="700">+</text>
+  <g fill="#303841" font-family="Arial, sans-serif" font-size="14" font-weight="700">
+    <text x="62" y="235">Nombre</text><text x="62" y="321">Tipo de documento</text><text x="62" y="407">Número de documento</text>
+    <text x="62" y="493">Edad</text><text x="260" y="493">Sexo</text><text x="62" y="579">Teléfono</text><text x="62" y="665">Seleccione el cargo</text>
+  </g>
+  <g fill="#fff" stroke="#dfe5eb">
+    <rect x="62" y="247" width="443" height="44" rx="7"/><rect x="62" y="333" width="443" height="44" rx="7"/>
+    <rect x="62" y="419" width="443" height="44" rx="7"/><rect x="62" y="505" width="168" height="44" rx="7"/>
+    <rect x="62" y="591" width="443" height="44" rx="7"/><rect x="62" y="677" width="443" height="44" rx="7"/>
+  </g>
+  <g fill="#667085" font-family="Arial, sans-serif" font-size="14">
+    <text x="78" y="360">DNI</text><text x="78" y="446">8 dígitos</text><text x="78" y="618">9 dígitos</text><text x="78" y="704">Cargo</text>
+    <text x="78" y="274">Nombre de ejemplo</text><text x="78" y="532">Edad</text>
+  </g>
+  <g font-family="Arial, sans-serif" font-size="14" fill="#303841"><circle cx="270" cy="526" r="9" fill="#0abf62"/><text x="288" y="531">Masculino</text><circle cx="385" cy="526" r="9" fill="#fff" stroke="#cfd6df"/><text x="403" y="531">Femenino</text></g>
+  <rect x="62" y="737" width="443" height="38" rx="7" fill="#303030"/><text x="185" y="762" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-weight="700">+ Agregar empleado</text>
+  <text x="562" y="184" fill="#252a31" font-family="Arial, sans-serif" font-size="27" font-weight="700">Lista de empleados</text>
+  <text x="562" y="212" fill="#667085" font-family="Arial, sans-serif" font-size="15">Total de empleados: 3</text>
+  <rect x="562" y="235" width="82" height="38" rx="6" fill="#fff" stroke="#dfe5eb"/><text x="579" y="259" fill="#303841" font-family="Arial, sans-serif" font-size="14">10  ▾</text>
+  <text x="652" y="259" fill="#303841" font-family="Arial, sans-serif" font-size="14">registros</text>
+  <rect x="1245" y="235" width="228" height="38" rx="6" fill="#fff" stroke="#dfe5eb"/><text x="1262" y="259" fill="#98a2b3" font-family="Arial, sans-serif" font-size="14">⌕  Buscar empleado</text>
+  <g fill="#414850" font-family="Arial, sans-serif" font-size="13" font-weight="700"><text x="572" y="317">#</text><text x="616" y="317">Nombre</text><text x="770" y="317">Edad</text><text x="850" y="317">Documento</text><text x="1110" y="317">Cargo</text><text x="1390" y="317">Acciones</text></g>
+  <g stroke="#e8edf3"><line x1="562" y1="332" x2="1473" y2="332"/><line x1="562" y1="405" x2="1473" y2="405"/><line x1="562" y1="478" x2="1473" y2="478"/><line x1="562" y1="551" x2="1473" y2="551"/><line x1="562" y1="624" x2="1473" y2="624"/></g>
+  <g fill="#252a31" font-family="Arial, sans-serif" font-size="14"><text x="572" y="375">1</text><text x="616" y="375" font-weight="700">Empleado Demo</text><text x="770" y="375">32</text><text x="850" y="375">DNI  ••••1234</text><text x="1110" y="375">Asistente</text><text x="572" y="448">2</text><text x="616" y="448" font-weight="700">Persona Ejemplo</text><text x="770" y="448">28</text><text x="850" y="448">CE  ••••AB12</text><text x="1110" y="448">Contador</text><text x="572" y="521">3</text><text x="616" y="521" font-weight="700">Usuario Demo</text><text x="770" y="521">35</text><text x="850" y="521">DNI  ••••5678</text><text x="1110" y="521">Desarrollador</text></g>
+  <g><rect x="1400" y="350" width="38" height="38" rx="8" fill="#ffc107"/><text x="1410" y="375" fill="#252a31" font-family="Arial, sans-serif" font-size="18">✎</text><rect x="1444" y="350" width="29" height="38" rx="8" fill="#dc3545"/><text x="1452" y="375" fill="#fff" font-family="Arial, sans-serif" font-size="16">×</text><rect x="1400" y="423" width="38" height="38" rx="8" fill="#ffc107"/><text x="1410" y="448" fill="#252a31" font-family="Arial, sans-serif" font-size="18">✎</text><rect x="1444" y="423" width="29" height="38" rx="8" fill="#dc3545"/><text x="1452" y="448" fill="#fff" font-family="Arial, sans-serif" font-size="16">×</text><rect x="1400" y="496" width="38" height="38" rx="8" fill="#ffc107"/><text x="1410" y="521" fill="#252a31" font-family="Arial, sans-serif" font-size="18">✎</text><rect x="1444" y="496" width="29" height="38" rx="8" fill="#dc3545"/><text x="1452" y="521" fill="#fff" font-family="Arial, sans-serif" font-size="16">×</text></g>
+  <text x="562" y="690" fill="#667085" font-family="Arial, sans-serif" font-size="13">Mostrando registros del 1 al 3 de un total de 3</text>
+</svg>

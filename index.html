@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Sistema CRUD de empleados hecho con PHP, PDO, MySQL y Bootstrap.">
+  <title>CRUD de empleados</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-yEPZ7jP9S0QKiUQ0m3jjsO4ProIW7wvR9gXkI7JOGa2XVsw53Yke2bsdkBbjmmiX" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+  <main class="container-xl py-4 py-lg-5">
+    <header class="mb-4">
+      <h1 class="page-title">Desarrollo de un Sistema CRUD de Empleados en PHP utilizando PDO y MySQL</h1>
+      <p class="page-subtitle mb-0">Administra el registro de tu equipo de forma mas sencilla.</p>
+    </header>
+
+    <section class="app-card" aria-label="Gestión de empleados">
+      <div class="row g-0">
+        <aside class="col-lg-4 form-panel">
+          <div class="d-flex align-items-center justify-content-between mb-4">
+            <h2 class="section-title mb-0">Empleado</h2>
+            <span class="icon-badge" aria-hidden="true"><i class="bi bi-person-plus"></i></span>
+          </div>
+          <form id="empleado-form" novalidate>
+            <input type="hidden" id="empleado-id">
+            <div class="mb-3">
+              <label class="form-label" for="nombre">Nombre</label>
+              <input class="form-control" id="nombre" name="nombre" type="text" maxlength="100" autocomplete="name" required>
+              <div class="invalid-feedback"></div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="tipo_documento">Tipo de documento</label>
+              <select class="form-select" id="tipo_documento" name="tipo_documento" required>
+                <option value="DNI">DNI</option>
+                <option value="CE">Carné de extranjería (CE)</option>
+              </select>
+              <div class="invalid-feedback"></div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="numero_documento">Número de documento</label>
+              <input class="form-control" id="numero_documento" name="numero_documento" type="text" maxlength="8" inputmode="numeric" pattern="[0-9]{8}" placeholder="8 dígitos" required>
+              <div class="invalid-feedback"></div>
+            </div>
+            <div class="row g-3 mb-3">
+              <div class="col-sm-5">
+                <label class="form-label" for="edad">Edad</label>
+                <input class="form-control" id="edad" name="edad" type="number" min="18" max="100" inputmode="numeric" required>
+                <div class="invalid-feedback"></div>
+              </div>
+              <div class="col-sm-7">
+                <span class="form-label d-block">Sexo</span>
+                <div class="pt-1" role="radiogroup" aria-label="Sexo">
+                  <div class="form-check form-check-inline me-2">
+                    <input class="form-check-input" id="sexo-masculino" name="sexo" type="radio" value="Masculino" required>
+                    <label class="form-check-label" for="sexo-masculino">Masculino</label>
+                  </div>
+                  <div class="form-check form-check-inline me-0">
+                    <input class="form-check-input" id="sexo-femenino" name="sexo" type="radio" value="Femenino" required>
+                    <label class="form-check-label" for="sexo-femenino">Femenino</label>
+                  </div>
+                  <div class="invalid-feedback d-block sexo-feedback"></div>
+                </div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="telefono">Teléfono</label>
+              <input class="form-control" id="telefono" name="telefono" type="tel" maxlength="9" inputmode="numeric" pattern="[0-9]{9}" autocomplete="tel-national" placeholder="9 dígitos, ej. 987654321" required>
+              <div class="invalid-feedback"></div>
+            </div>
+            <div class="mb-4">
+              <label class="form-label" for="cargo">Seleccione el cargo</label>
+              <input class="form-control" id="cargo" name="cargo" type="text" maxlength="100" list="cargos" placeholder="Cargo" required>
+              <datalist id="cargos">
+                <option value="Asistente"></option>
+                <option value="Contador"></option>
+                <option value="Desarrollador"></option>
+                <option value="Diseñador"></option>
+                <option value="Secretario"></option>
+              </datalist>
+              <div class="invalid-feedback"></div>
+            </div>
+            <div class="d-grid gap-2">
+              <button class="btn btn-primary" id="guardar-btn" type="submit"><i class="bi bi-plus-lg me-1"></i>Agregar empleado</button>
+              <button class="btn btn-light d-none" id="cancelar-btn" type="button">Cancelar edición</button>
+            </div>
+          </form>
+        </aside>
+
+        <section class="col-lg-8 list-panel">
+          <div id="alerta" class="alert d-none" role="alert"></div>
+          <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-3">
+            <div>
+              <h2 class="list-title mb-1">Lista de empleados</h2>
+              <p class="text-secondary small mb-0">Total de empleados: <strong id="total-empleados">0</strong></p>
+            </div>
+            <button class="btn btn-success btn-sm rounded-3" id="recargar-btn" type="button" title="Actualizar lista"><i class="bi bi-arrow-clockwise"></i><span class="visually-hidden">Actualizar lista</span></button>
+          </div>
+          <div class="table-tools">
+            <div class="d-flex align-items-center gap-2 small">
+              <label for="por-pagina">Mostrar</label>
+              <select class="form-select form-select-sm" id="por-pagina" aria-label="Registros por página">
+                <option value="5">5</option>
+                <option value="10" selected>10</option>
+                <option value="25">25</option>
+              </select>
+              <span>registros</span>
+            </div>
+            <div class="input-group input-group-sm search-control">
+              <span class="input-group-text bg-white"><i class="bi bi-search"></i></span>
+              <input class="form-control" id="buscar" type="search" placeholder="Buscar empleado" aria-label="Buscar por nombre, cédula o cargo">
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="table align-middle employee-table mb-0">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Edad</th>
+                  <th scope="col">Documento</th>
+                  <th scope="col">Cargo</th>
+                  <th scope="col" class="text-end">Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="empleados-lista"></tbody>
+            </table>
+          </div>
+          <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3 pt-3">
+            <p class="small text-secondary mb-0" id="rango-registros">Mostrando 0 registros</p>
+            <nav aria-label="Paginación de empleados"><ul class="pagination pagination-sm mb-0" id="paginacion"></ul></nav>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/js/bootstrap.bundle.min.js" integrity="sha384-WyOxWvTyr1QaMPfiPJSv76iReVthorl5uWlFtZPyK0IEB0hGzo9y5Bp9mYanr8Bu" crossorigin="anonymous"></script>
+  <script src="js.js?v=3"></script>
+</body>
+</html>
