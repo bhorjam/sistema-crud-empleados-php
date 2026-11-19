@@ -75,3 +75,50 @@ sistema-crud-empleados-php/
 ├── styles.css              # Estilos personalizados de la interfaz
 ├── LICENSE                 # Licencia MIT
 └── README.md               # Documentación del proyecto
+
+
+ Instalación y Ejecución Local (XAMPP)
+Clonar o descargar el repositorio:
+
+Bash
+git clone [https://github.com/bhorjam/sistema-crud-empleados-php.git](https://github.com/bhorjam/sistema-crud-empleados-php.git)
+Ubicar el proyecto en el servidor local:
+
+Copia la carpeta del proyecto dentro de C:\xampp\htdocs\crud (o el nombre de carpeta que prefieras).
+
+Iniciar servicios en XAMPP:
+
+Abre el panel de control de XAMPP e inicia los módulos de Apache y MySQL.
+
+Importar la base de datos (crud_empleados):
+
+Abre tu navegador e ingresa a http://localhost/phpmyadmin.
+
+Ve a la pestaña Importar, selecciona el archivo db/database.sql y haz clic en Importar / Continuar.
+
+Nota: El sistema utiliza una única base de datos llamada crud_empleados. El script crea la tabla empleados desde cero o actualiza esquemas antiguos de forma segura sin eliminar registros previos.
+
+Configurar credenciales (opcional):
+
+Si tu usuario o contraseña de MySQL son distintos a los valores por defecto de XAMPP (root sin clave), actualiza DB_USER y DB_PASS en config/db.php.
+
+Ejecutar el sistema:
+
+Abre tu navegador e ingresa a:
+
+Plaintext
+http://localhost/crud/
+
+
+⭐ ¡Apoya este proyecto!
+Si este código te ayudó a entender cómo estructurar un CRUD profesional con PHP, PDO y MySQL, o te sirvió como referencia para tus estudios y proyectos:
+
+Regálale una estrella (⭐) en la parte superior derecha de este repositorio; me motiva a seguir creando y compartiendo más herramientas libres para la comunidad.
+
+Haz un Fork si deseas adaptarlo y agregarle nuevas funciones (como reportes en PDF/Excel o autenticación de usuarios).
+
+¿Tienes alguna duda o sugerencia de mejora? Abre un Issue y lo revisamos juntos.
+
+📄 Licencia
+Este proyecto se distribuye bajo la Licencia MIT. Consulta el archivo LICENSE para más detalles.
+
